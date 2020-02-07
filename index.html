@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <section>
+        <div class="header">
+            <div class="header_nav" id="myheader_nav">
+                <a href="#tinder" class="logo"><span>t</span>inder</a>
+                <a href="#home" class="">Home</a>
+                <a href="#news">about us</a>
+                <a href="#contact">portfolio</a>
+                <a href="#about">blog</a>
+                <a href="#about">contract us</a>
+                <a href="#icon" class="icon" onclick="reponsiveMenu()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+
+            <div class="header_content">
+                <div class="header_content--title">
+                    <span>tinder</span>
+                    <span>html5</span>
+                    <span>Template</span>
+                </div>
+                <div class="header_content--body">
+                    Adipisicing officia aliqua eiusmod minim magna. Eu et aliqua do minim non dolor non. Officia ullamco consectetur nulla quis esse labore eiusmod anim cillum.
+                </div>
+                <a href="#noticeFunctional" class="header_content--btn">let's start</a>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="noticeFunctional" id="noticeFunctional">
+            <div class="noticeFunctional_smart">
+                <div class="inconNotice">
+                    <img src="./img/service_icon_01.png" alt="">
+                </div>
+                <div class="functionalName">
+                    Smart Notifications
+                </div>
+                <div class="functionalContent">
+                    Labore anim dolor deserunt cillum.Labore anim dolor deserunt cillum.Labore anim dolor deserunt cillum.
+                </div>
+                <button type="button" class="functionalBtn">
+                    continue reading
+                </button>
+            </div>
+            <div class="noticeFunctional_love">
+                <div class="inconNotice">
+                    <img src="./img/service_icon_02.png" alt="">
+                </div>
+                <div class="functionalName">
+                    Lovely Web Design
+                </div>
+                <div class="functionalContent">
+                    Labore anim dolor deserunt cillum.Labore anim dolor deserunt cillum.Labore anim dolor deserunt cillum.
+                </div>
+                <button type="button" class="functionalBtn">
+                    continue reading
+                </button>
+            </div>
+            <div class="noticeFunctional_support">
+                <div class="inconNotice">
+                    <img src="./img/service_icon_03.png" alt="">
+                </div>
+                <div class="functionalName">
+                    24/7 Quick Support
+                </div>
+                <div class="functionalContent">
+                    Labore anim dolor deserunt cillum.Labore anim dolor deserunt cillum.Labore anim dolor deserunt cillum.
+                </div>
+                <button type="button" class="functionalBtn">
+                    continue reading
+                </button>
+            </div>
+            <div class="noticeFunctional_setup">
+                <div class="inconNotice">
+                    <img src="./img/service_icon_04.png" alt="">
+                </div>
+                <div class="functionalName">
+                    One Click Setup
+                </div>
+                <div class="functionalContent">
+                    Labore anim dolor deserunt cillum.Labore anim dolor deserunt cillum.Labore anim dolor deserunt cillum.
+                </div>
+                <button type="button" class="functionalBtn">
+                    continue reading
+                </button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="gallery">
+            <div class="galleryNav">
+                <label>our gallery</label>
+                <hr>
+                <p>In malesuala placerat ligula et bibendum aennean eget urna enim. Sed enim ante, bibendum nec dictum ac, gravida ac lectus</p>
+                <div class="galleryNav_btn">
+                    <a onclick="showAllImg()">Show All</a>
+                    <a onclick="showImg('brand')">Branding</a>
+                    <a onclick="showImg('graphic')">Graphic</a>
+                    <a onclick="showImg('nature')">Nature</a>
+                    <a onclick="showImg('animation')">Animation</a>
+                </div>
+            </div>
+            <div class="galleryImg">
+                <img id="img1" src="./img/portfolio_item_01.jpg" alt="">
+                <img id="img2" src="./img/portfolio_item_02.jpg" alt="">
+                <img id="img3" src="./img/portfolio_item_03.jpg" alt="">
+                <img id="img4" src="./img/portfolio_item_04.jpg" alt="">
+                <img id="img5" src="./img/portfolio_item_05.jpg" alt="">
+                <img id="img6" src="./img/portfolio_item_06.jpg" alt="">
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="myCarousel">
+            <div id="demo" class="carousel slide" data-ride="carousel">
+                <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                </ul>
+                <div class="carousel-inner">
+                    <div class="carousel-item active carouselItem">
+                        <div class="myCarousel_content">
+                            Esse et incididunt id non eu esse eu aliqua.Consectetur eiusmod consequat et amet deserunt ad. Esse et incididunt id non eu esse eu aliqua.Consectetur eiusmod consequat et amet deserunt ad.
+
+                        </div>
+                    </div>
+                    <div class="carousel-item carouselItem">
+                        <div class="myCarousel_content">
+                            Esse et incididunt id non eu esse eu aliqua.Consectetur eiusmod consequat et amet deserunt ad.
+                        </div>
+                    </div>
+                    <div class="carousel-item carouselItem">
+                        <div class="myCarousel_content">
+                            Esse et incididunt id non eu esse eu aliqua.Consectetur eiusmod consequat et amet deserunt ad. Esse et incididunt id non eu esse eu aliqua.Consectetur eiusmod consequat et amet deserunt ad.
+
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
