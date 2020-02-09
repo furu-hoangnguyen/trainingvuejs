@@ -45,3 +45,29 @@ function showImg(name) {
             break;
     }
 }
+
+function hidAllBlogPost() {
+    for (var i = 1; i < 5; i++) {
+        document.getElementById("blogPost" + i).style.display = 'none';
+    }
+}
+
+function showBlogPost(name) {
+    hidAllBlogPost();
+    switch (name) {
+        case 'blogPost1':
+            document.getElementById('blogPost1').style.display = 'flex';
+            break;
+        case 'blogPost2':
+            document.getElementById('blogPost2').style.display = 'flex';
+            break;
+        case 'blogPost3':
+            document.getElementById('blogPost3').style.display = 'flex';
+            break;
+        case 'blogPost4':
+            document.getElementById('blogPost4').style.display = 'flex';
+            break;
+        default:
+            break;
+    }
+}

@@ -256,6 +256,8 @@
             }
         }
         
+        @media screen and (max-width: 1330px) {}
+        
         @media screen and (max-width: 480px) {
             .noticeFunctional>div {
                 width: 100%;
@@ -303,17 +305,21 @@
         
         .gallery .galleryNav a:hover,
         .galleryNav_active {
-            color: #fdef1e;
+            color: #f5c362;
         }
         
         .gallery .galleryImg {
             width: 60%;
             height: auto;
             display: flex;
-            justify-content: left;
+            justify-content: center;
             flex-wrap: wrap;
             flex-direction: row;
             padding: 1em;
+        }
+        
+        .gallery .galleryImg img {
+            width: auto;
         }
         
         .gallery .galleryNav_btn {
@@ -342,10 +348,19 @@
                 margin: 2%;
                 width: auto;
             }
+            .gallery .galleryImg img {
+                width: 50%;
+            }
+        }
+        
+        @media screen and (max-width: 1330px) and (min-width: 1025px) {
+            .gallery .galleryImg img {
+                width: 50%;
+            }
         }
         
         @media screen and (max-width: 480px) {
-            .gallery .galleryImg {
+            .gallery .galleryImg img {
                 width: 100%;
                 justify-content: center;
             }
@@ -362,23 +377,217 @@
         }
         
         .myCarousel_content {
-            position: absolute;
             height: 23%;
             border-radius: 7px;
-            width: 30%;
-            top: 10em;
+            width: 40%;
             font-size: 1.3em;
             text-align: left;
-            left: 35%;
             z-index: 10;
             color: black;
             background-color: white;
             padding: 1em;
+            margin: 0 auto;
             font-style: italic;
+            margin-top: 10em;
+            overflow: hidden;
         }
         
         .myCarousel .carousel-indicators li {
             height: 15px;
             width: 15px;
             border-radius: 50%;
+        }
+        
+        @media screen and (max-width: 1024px) {
+            .myCarousel_content {
+                width: 60%;
+            }
+        }
+        /* blog Post article */
+        
+        .blogPost {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            color: white;
+        }
+        
+        .blogPost .blogPost__nav {
+            width: 45%;
+            height: 60em;
+            padding: 5% 10% 0 14%;
+            background-color: #797979;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        
+        .blogPost .blogPost__nav label {
+            text-transform: uppercase;
+            font-size: 2.5em;
+            font-weight: 600;
+        }
+        
+        .blogPost .blogPost__nav p {
+            font-size: 1.3em;
+            margin-bottom: 13%;
+        }
+        
+        .blogPost__line {
+            color: white;
+            height: 1px;
+            width: 100%;
+            background-color: white;
+            margin: 5% 0;
+        }
+        
+        .blogPost .blogPost__nav .blogPost__btn {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        
+        .blogPost .blogPost__nav .blogPost__btn button {
+            width: 100%;
+            outline: none;
+            font-size: 1.3em;
+            border: 1px solid gray;
+            margin-top: 3.5%;
+            padding: .7em .5em;
+            font-weight: 600;
+        }
+        
+        .blogPost .blogPost__nav .blogPost__btn button:hover {
+            color: #f5c362;
+        }
+        
+        .blogPost .blogPost__article {
+            width: 55%;
+            height: 60em;
+            padding: 2% 2% 1% 2%;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .blogPost .blogPost__article .blogPost__article--items {
+            width: 100%;
+            color: black;
+            display: flex;
+            justify-content: start;
+            flex-direction: column;
+            flex-wrap: wrap;
+            display: none;
+        }
+        
+        .blogPost .blogPost__article .blogPost__article--items:first-child {
+            display: flex;
+        }
+        
+        .blogPost .blogPost__article .blogPost__article--items img {
+            align-items: flex-start;
+            align-self: auto;
+            width: 100%;
+            height: auto;
+        }
+        
+        .blogPost .blogPost__article .blogPost__article--items p {
+            font-size: 1.6em;
+            font-weight: 600;
+            font-size: 1.7em;
+            font-weight: 500;
+        }
+        
+        .blogPost .blogPost__article .blogPost__article--items .blogPost__article--name {
+            font-size: 1.3em;
+            font-weight: 600;
+            font-size: 1.7em;
+            font-weight: 600;
+            margin: 1.5% 0;
+        }
+        
+        .blogPost .blogPost__article .blogPost__article--items .blogPost__article--path {
+            font-size: 1.3em;
+            font-weight: 600;
+            font-size: 1.3em;
+            font-weight: 500;
+            margin-bottom: 1%;
+            color: #33c1cf;
+        }
+        
+        @media screen and (max-width: 1024px) {
+            .blogPost {
+                flex-direction: column;
+            }
+            .blogPost .blogPost__nav {
+                width: 100%;
+            }
+            .blogPost .blogPost__article {
+                width: 100%;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .blogPost {
+                flex-direction: column;
+            }
+            .blogPost .blogPost__nav {
+                width: 100%;
+                height: 50em;
+            }
+            .blogPost .blogPost__article {
+                width: 100%;
+                height: 40em;
+            }
+            .blogPost .blogPost__article .blogPost__article--items p {
+                font-size: 1.3em;
+            }
+        }
+        /* contract us */
+        
+        .contract {
+            height: 40em;
+            width: 100%;
+            background-color: #585f65;
+            color: white;
+        }
+        
+        .contract .contract__content {
+            width: 20%;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .contract .contract__content button {
+            text-transform: uppercase;
+            font-weight: 700;
+            background-color: #33c1cf;
+            color: white;
+            border: none;
+            outline: none;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 50%;
+            height: 3em;
+            margin-top: 5%;
+        }
+        
+        .contract .contract__content label {
+            font-size: 1.7em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .contract .contract__content p {
+            font-size: 1.3em;
+            font-weight: 500;
         }
