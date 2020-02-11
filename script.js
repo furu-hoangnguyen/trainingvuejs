@@ -79,3 +79,28 @@ function showPopup() {
 function hidePopup() {
     document.getElementById('popup').style.display = 'none';
 }
+
+function operateActionScroll() {
+    console.log("aaaa")
+    var elem = document.getElementById("pageMain");
+    var y = elem.scrollTop;
+    if (y > 50) {
+        alert("al")
+    }
+
+}
+
+function getScroll() {
+    if (window.pageYOffset != undefined) {
+        if (pageYOffset > 100) {
+            document.getElementById("myheader_nav").style.backgroundColor = "rgba(250, 250, 250, 0.98)";
+            document.getElementById("myheader_nav").style.color = "black";
+            document.getElementById("icon").style.color = "black";
+
+        } else {
+            document.getElementById("myheader_nav").style.background = "none";
+            document.getElementById("myheader_nav").style.color = "white";
+            document.getElementById("icon").style.color = "white";
+        }
+    }
+}
