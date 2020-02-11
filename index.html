@@ -17,15 +17,17 @@
 </head>
 
 <body>
-    <section>
+    <section id="home">
         <div class="header">
             <div class="header_nav" id="myheader_nav">
-                <a href="#tinder" class="logo"><span>t</span>inder</a>
+                <a href="#home" class="logo"><span>t</span>inder</a>
                 <a href="#home" class="">Home</a>
-                <a href="#news">about us</a>
-                <a href="#contact">portfolio</a>
-                <a href="#about">blog</a>
-                <a href="#about">contract us</a>
+                <a href="#noticeFunctional">about us</a>
+                <a href="#gallery">gallery</a>
+                <a href="#myCarousel">portfolio</a>
+                <a href="#blogPost">blog</a>
+                <a href="#contract">contract us</a>
+
                 <a href="#icon" class="icon" onclick="reponsiveMenu()">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -44,8 +46,8 @@
             </div>
         </div>
     </section>
-    <section>
-        <div class="noticeFunctional" id="noticeFunctional">
+    <section id="noticeFunctional">
+        <div class="noticeFunctional">
             <div class="noticeFunctional_smart">
                 <div class="inconNotice">
                     <img src="./img/service_icon_01.png" alt="">
@@ -104,7 +106,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section id="gallery">
         <div class="gallery">
             <div class="galleryNav">
                 <label>our gallery</label>
@@ -128,7 +130,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section id="myCarousel">
         <div class="myCarousel">
             <div id="demo" class="carousel slide" data-ride="carousel">
                 <ul class="carousel-indicators">
@@ -164,7 +166,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section id="blogPost">
         <div class="blogPost">
             <div class="blogPost__nav">
                 <label>our blog posts</label>
@@ -218,13 +220,62 @@
             </div>
         </div>
     </section>
-    <section>
+    <section id="contract">
         <div class="contract">
             <div class="contract__content">
                 <label>contract us</label>
                 <span class="blogPost__line"></span>
                 <p>Amet sint nostrud exercitation veniam. Adipisicing ut id voluptate aliquip adipisicing minim pariatur velit laboris adipisicing quis culpa aliqua commodo. Sint amet aute ut incididunt nulla.</p>
-                <button>Send Us A message </button>
+                <button type="button" onclick="showPopup()">Send Us A message </button>
+            </div>
+        </div>
+    </section>
+    <section id="footer">
+        <div class="footer">
+            <div class="footer__info">
+                <label><span>T</span>inder</label>
+                <p>Copyright - 2020 Yot Company</p>
+                <p>Design: TemplateMo</p>
+            </div>
+            <div class="footer__location">
+                <label>location</label>
+                <div class="footer__location--info1">
+                    46 Raffles Ave, <br> Singapore 039803
+                </div>
+                <div class="footer__location--info2">
+                    12 Repullic Blvd,<br> Singapore 038975
+                </div>
+            </div>
+            <div class="footer__moreInfo">
+                <div class="footer__moreInfo1">
+                    <label>more info</label>
+                    <label>Phone: 040-040-0440</label>
+                    <label>Email: tk@Company.com</label>
+                </div>
+                <div class="footer__moreInfo2">
+                    <label>get Socical with us</label>
+                    <div class="footer__moreInfo2--icon">
+                        <i class="fa fa-twitter"></i>
+                        <i class="fa fa-facebook"></i>
+                        <i class="fa fa-google"></i>
+                        <i class="fa fa-codepen"></i>
+                        <i class="fa fa-wifi"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="popup" id="popup">
+            <img src="./img/close.png" alt="" onclick="hidePopup()">
+            <div class="popup__form">
+                <label>Name:</label>
+                <input type="text" class="popup__form--name">
+                <label>Phone:</label>
+                <input type="text" class="popup__form--phone">
+                <label>Email:</label>
+                <input type="text" class="popup__form--email">
+                <button>send message</button>
             </div>
         </div>
     </section>
