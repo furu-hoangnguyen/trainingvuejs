@@ -482,7 +482,7 @@
             height: 1px;
             width: 100%;
             background-color: white;
-            margin: 5% 0;
+            margin: 1em 0;
         }
         
         .blogPost .blogPost__nav .blogPost__btn {
@@ -910,5 +910,8 @@
             .popup .popup__form input {
                 padding: .5em;
                 font-size: 1.3em;
+            }
+            .footer__moreInfo2--icon {
+                text-align: center;
             }
         }
