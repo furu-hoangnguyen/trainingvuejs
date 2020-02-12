@@ -30,10 +30,8 @@
             z-index: 20000;
             position: fixed;
             top: 0;
-            color: white
-            /* background-image: url(./img/banner_bg.jpg);
-            background-size: cover;
-            background-repeat: no-repeat; */
+            color: white;
+            padding: 0 5%;
         }
         
         .header_nav a {
@@ -105,7 +103,7 @@
         }
         
         .responsive {
-            height: 34em;
+            height: 20em;
         }
         
         .header_nav .menuItem2 {
@@ -118,6 +116,9 @@
             }
             .header_nav .menuItem1 {
                 margin-left: 4%;
+            }
+            .header_nav {
+                padding: 0;
             }
         }
         
