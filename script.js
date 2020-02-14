@@ -32,6 +32,12 @@ function showImg(name) {
     hideAllImg();
     var arr = [];
     switch (name.toString()) {
+        case "all":
+            for (var i = 1; i < 7; i++) {
+                document.getElementById("img" + i).style.display = 'block';
+            };
+            document.getElementById('btn1').style.color = 'rgb(238, 189, 55)';
+            break;
         case "brand":
             arr = ["img1", "img2", "img3", "img6"];
             arr.map(elm => document.getElementById(elm).style.display = 'block');
