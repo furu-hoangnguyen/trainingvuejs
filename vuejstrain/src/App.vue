@@ -31,7 +31,6 @@ export default {
   },
   data() {
     return {
-      messageData: { name: "", phone: "", email: "" }
     };
   },
   methods: {
@@ -55,7 +54,7 @@ export default {
   },
   created() {
     document.addEventListener("scroll", this.scroll);
-  }
+  },
 };
 </script>
 

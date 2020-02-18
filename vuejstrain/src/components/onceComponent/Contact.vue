@@ -9,10 +9,19 @@
           aliquip adipisicing minim pariatur velit laboris adipisicing quis
           culpa aliqua commodo. Sint amet aute ut incididunt nulla.
         </p>
-        <button type="button" @click="showPopUpSendMessages(true)">Send Us A message</button>
+        <button type="button" @click="showPopUpSendMessages(true)">
+          Send Us A message
+        </button>
       </div>
     </div>
-    <PopupMessage :sendMessage="getMessages" :showPopup="showPopUpSendMessages" v-if="isShowPopUpSendMessage"/>
+    <PopupMessage
+      :sendMessage="getMessages"
+      :showPopup="showPopUpSendMessages"
+      @getMessages="getMessages"
+      @close="isShowPopUpSendMessage = false"
+      v-model="valueEmail"
+      v-if="isShowPopUpSendMessage"
+    />
   </section>
 </template>
 
@@ -22,8 +31,9 @@ export default {
   name: "Contact",
   data: function() {
     return {
-      isShowPopUpSendMessage:false,
-      messageData: { name: "", phone: "", email: "" }
+      isShowPopUpSendMessage: false,
+      messageData: { name: "", phone: "", email: "" },
+      valueEmail:''
     };
   },
   components: {
@@ -36,7 +46,7 @@ export default {
       this.messageData.phone = data.phone;
       this.messageData.email = data.email;
     },
-    showPopUpSendMessages:function(data){
+    showPopUpSendMessages: function(data) {
       this.isShowPopUpSendMessage = data;
     }
   }
