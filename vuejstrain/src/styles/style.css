@@ -793,7 +793,7 @@ body {
   background-image: url(../image//blog-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  display: none;
+  display: block;
   z-index: 10000;
   padding: 10% 30%;
   flex-direction: column;

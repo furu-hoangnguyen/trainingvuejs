@@ -2,14 +2,7 @@
   <section id="home">
     <div class="header">
       <div class="header_nav" id="myheader_nav">
-        <a href="#home" class="logo menuItem1"> <span>t</span>inder </a>
-        <a href="#home" class="menuItem1 menuItem2">Home</a>
-        <a href="#noticeFunctional" class="menuItem1">about us</a>
-        <a href="#gallery" class="menuItem1">gallery</a>
-        <a href="#myCarousel" class="menuItem1">portfolio</a>
-        <a href="#blogPost" class="menuItem1">blog</a>
-        <a href="#contract" class="menuItem1">contact us</a>
-
+        <a :href="item.href" v-html="item.name" :class="item.class" v-for="(item, index) in headerNav" :key="index">{{item.name}}</a>
         <a href="#icon" id="icon" class="icon" onclick="reponsiveMenu()">
           <i class="fa fa-bars" id="iconCollaps"></i>
         </a>
@@ -35,11 +28,26 @@
 <script>
 export default {
   name: "NoticeFunctional",
-  props: {
-    msg: String
+  data(){
+    return{
+      headerNav:[
+        {name:'<span>t</span>inder',href:'#home',class:['logo','menuItem1']},
+        {name:'Home',href:'#home',class:['menuItem1', 'menuItem2']},
+        {name:'about us',href:'#noticeFunctional',class:['menuItem1']},
+        {name:'gallery',href:'#gallery',class:['menuItem1']},
+        {name:'portfolio',href:'#myCarousel',class:['menuItem1']},
+        {name:'blog',href:'#blogPost',class:['menuItem1']},
+        {name:'contact us',href:'#contract',class:['menuItem1']}
+
+      ]
+    }
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+  /* .header .header_nav .menuItem1:nth-child(2){
+    margin-left: 25% !important;
+  } */
+</style>

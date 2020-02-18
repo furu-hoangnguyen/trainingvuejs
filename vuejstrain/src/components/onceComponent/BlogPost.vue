@@ -52,21 +52,21 @@ export default {
         "Vivamus Purus Neque"
       ],
       post1: {
-        url: require("@/image/blog_item_01.jpg"),
+        url: "./images/blog_item_01.jpg",
         title: "Nulla eget Convallis",
         path: "Digital Maketing / Honey / 21 September 2020",
         content:
           "Non pariatur sunt anim ad adipisicing eu sunt anim velit ullamco deserunt. Quis reprehenderit culpa ullamco duis culpa labore ut aliquip proident irure labore. Nisi adipisicing nostrud fugiat labore laboris. Dolore ex nulla eiusmod duis."
       },
       post2: {
-        url: require("@/image/blog_item_02.jpg"),
+        url: "./images/blog_item_02.jpg",
         title: "Proident magna enim eu elit do",
         path: "Digital Maketing / Honey / 21 September 2020",
         content:
           "Donec interdum scelerisque autor. Nulla id loẻm autor. Proident ad commodo magna consequat.Cupidatat ullamco voluptate dolor veniam esse velit sunt cillum in laboris id."
       },
       post3: {
-        url: require("@/image/blog_item_03.jpg"),
+        url: "./images/blog_item_03.jpg",
         title:
           "Quis dolor dolor nisi reprehenderit proident laboris incididunt in.",
         path: "Digital Maketing / Honey / 21 September 2020",
@@ -74,7 +74,7 @@ export default {
           "Minim ad commodo ipsum aliqua id qui minim ullamco pariatur aliquip cupidatat est id. Occaecat duis nisi deserunt cillum veniam aute irure minim sit et in ipsum labore pariatur. Enim dolore cupidatat minim eiusmod sint proident ad. Cupidatat consequatculpa reprehenderit pariatur in proident incididunt irure veniam nulla aliquip fugiat."
       },
       post4: {
-        url: require("@/image/blog_item_04.jpg"),
+        url: "./images/blog_item_04.jpg",
         title:
           "Excepteur eiusmod mollit occaecat ex id nisi aliqua sit cillum enim cupidatat voluptate ad nulla",
         path: "Digital Maketing / Honey / 21 September 2020",

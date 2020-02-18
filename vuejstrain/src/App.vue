@@ -7,18 +7,17 @@
     <BlogPost />
     <Contact />
     <Footer />
-    <button type="button" v-on:click="scroll">Click me</button>
   </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import NoticeFunctional from "./components/Notice.vue";
-import Gallery from "./components/Gallery.vue";
-import MyCarousel from "./components/MyCarousel.vue";
-import BlogPost from "./components/BlogPost.vue";
-import Contact from "./components/Contact.vue";
-import Footer from "./components/Footer.vue";
+import Header from "./components/onceComponent/Header";
+import NoticeFunctional from "./components/onceComponent/Notice";
+import Gallery from "./components/onceComponent/Gallery";
+import MyCarousel from "./components/onceComponent/MyCarousel";
+import BlogPost from "./components/onceComponent/BlogPost";
+import Contact from "./components/onceComponent/Contact";
+import Footer from "./components/onceComponent/Footer";
 export default {
   name: "App",
   components: {
@@ -29,6 +28,11 @@ export default {
     BlogPost,
     Contact,
     Footer
+  },
+  data() {
+    return {
+      messageData: { name: "", phone: "", email: "" }
+    };
   },
   methods: {
     scroll: function() {
@@ -47,9 +51,6 @@ export default {
           document.getElementById("iconCollaps").style.background = "none";
         }
       }
-    },
-    countScroll: function() {
-      console.log("aaaa");
     }
   },
   created() {

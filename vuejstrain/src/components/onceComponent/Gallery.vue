@@ -22,7 +22,7 @@
       </div>
       <div class="galleryImg">
         <img
-          v-for="(item, index) in galleryImgUrl"
+          v-for="(item, index) in images"
           :key="index"
           :id="'img' + (index + 1)"
           :src="item.url"
@@ -46,12 +46,21 @@ export default {
         { name: "Animation", imgName: "animation" }
       ],
       galleryImgUrl: [
-        { url: require("@/image/portfolio_item_01.jpg") },
-        { url: require("@/image/portfolio_item_02.jpg") },
-        { url: require("@/image/portfolio_item_03.jpg") },
-        { url: require("@/image/portfolio_item_04.jpg") },
-        { url: require("@/image/portfolio_item_05.jpg") },
-        { url: require("@/image/portfolio_item_06.jpg") }
+        { url: "./images/portfolio_item_01.jpg", type: "brand_nature" },
+        {
+          url: "./images/portfolio_item_02.jpg",
+          type: "brand_graphic_animation"
+        },
+        {
+          url: "./images/portfolio_item_03.jpg",
+          type: "brand_nature-animation"
+        },
+        {
+          url: "./images/portfolio_item_04.jpg",
+          type: "graphic_nature_animation"
+        },
+        { url: "./images/portfolio_item_05.jpg", type: "graphic" },
+        { url: "./images/portfolio_item_06.jpg", type: "brand_nature" }
       ],
       collectionGallerys: {
         all: ["img1", "img2", "img3", "img4", "img5", "img6"],
@@ -60,53 +69,62 @@ export default {
         nature: ["img1", "img4", "img6", "img3"],
         animation: ["img4", "img3", "img1", "img2"]
       },
+      galleryImages: [],
       activeBtn: 1
     };
   },
   methods: {
     showImg(name) {
-      console.log(name);
-      this.hideAllImg();
       switch (name) {
         case "all":
           this.activeBtn = 1;
-          this.collectionGallerys.all.map(
-            elm => (document.getElementById(elm).style.display = "block")
-          );
+          this.galleryImages = this.galleryImgUrl;
+
           break;
         case "brand":
           this.activeBtn = 2;
-          this.collectionGallerys.brand.map(
-            elm => (document.getElementById(elm).style.display = "block")
-          );
+          this.galleryImages = this.galleryImgUrl;
+          this.galleryImages = this.galleryImages.filter(elm => {
+            var index = elm.type.indexOf("brand");
+            if (index !== -1) return elm;
+          });
           break;
         case "graphic":
           this.activeBtn = 3;
-          this.collectionGallerys.graphic.map(
-            elm => (document.getElementById(elm).style.display = "block")
-          );
+          this.galleryImages = this.galleryImgUrl;
+          this.galleryImages = this.galleryImages.filter(elm => {
+            var index = elm.type.indexOf("graphic");
+            if (index !== -1) return elm;
+          });
           break;
         case "nature":
           this.activeBtn = 4;
-          this.collectionGallerys.nature.map(
-            elm => (document.getElementById(elm).style.display = "block")
-          );
+          this.galleryImages = this.galleryImgUrl;
+          this.galleryImages = this.galleryImages.filter(elm => {
+            var index = elm.type.indexOf("nature");
+            if (index !== -1) return elm;
+          });
           break;
         case "animation":
           this.activeBtn = 5;
-          this.collectionGallerys.animation.map(
-            elm => (document.getElementById(elm).style.display = "block")
-          );
+          this.galleryImages = this.galleryImgUrl;
+          this.galleryImages = this.galleryImages.filter(elm => {
+            var index = elm.type.indexOf("animation");
+            if (index !== -1) return elm;
+          });
           break;
         default:
           break;
       }
     },
-    hideAllImg() {
-      this.collectionGallerys.all.map(
-        elm => (document.getElementById(elm).style.display = "none")
-      );
+  },
+  computed: {
+    images: function() {
+      return this.galleryImages;
     }
+  },
+  mounted(){
+    this.showImg('all');
   }
 };
 </script>

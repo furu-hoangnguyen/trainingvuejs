@@ -8,14 +8,12 @@
           <li data-target="#demo" data-slide-to="2"></li>
         </ul>
         <div class="carousel-inner">
-          <div class="carousel-item active carouselItem">
+          <div :class="{'carousel-item':true,carouselItem:true, active:activeNum == index}" v-for="(item,index) in carousel" :key="index">
             <div class="myCarousel_content">
-              Esse et incididunt id non eu esse eu aliqua.Consectetur eiusmod
-              consequat et amet deserunt ad. Esse et incididunt id non eu esse
-              eu aliqua.Consectetur eiusmod consequat et amet deserunt ad.
+              {{item.content}}
             </div>
           </div>
-          <div class="carousel-item carouselItem">
+          <!-- <div class="carousel-item carouselItem">
             <div class="myCarousel_content">
               Esse et incididunt id non eu esse eu aliqua.Consectetur eiusmod
               consequat et amet deserunt ad.
@@ -27,7 +25,7 @@
               consequat et amet deserunt ad. Esse et incididunt id non eu esse
               eu aliqua.Consectetur eiusmod consequat et amet deserunt ad.
             </div>
-          </div>
+          </div> -->
         </div>
         <a class="carousel-control-prev" href="#demo" data-slide="prev">
           <span class="carousel-control-prev-icon"></span>
@@ -43,9 +41,17 @@
 <script>
 export default {
   name: "MyCarousel",
-  props: {
-    msg: String
+  data(){
+    return{
+      carousel:[
+        {content:'Esse et incididunt id non eu esse eu aliqua.Consectetur eiusmod consequat et amet deserunt ad. Esse et incididunt id non eu esse eu aliqua.Consectetur eiusmod consequat et amet deserunt ad.'},
+        {content:'Esse et incididunt id non eu esse eu aliqua.Consectetur eiusmod consequat et amet deserunt ad.'},
+        {content:'asssincididunt id non eu esse eu aliqua.Consectetur eiusmod consequat et amet deserunt ad.'},
+      ],
+      activeNum:0
+    }
   }
+  
 };
 </script>
 
