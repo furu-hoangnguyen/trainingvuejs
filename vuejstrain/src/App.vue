@@ -1,37 +1,24 @@
 <template>
   <div id="app">
     <Header />
-    <NoticeFunctional />
-    <Gallery />
-    <MyCarousel />
-    <BlogPost />
-    <Contact />
-    <Footer />
+    <router-view />
+    <router-view name="gallery" />
+    <router-view name="myCarousel" />
+    <router-view name="blogPost" />
+    <router-view name="contact" />
+    <router-view name="footer" />
   </div>
 </template>
 
 <script>
 import Header from "./components/onceComponent/Header";
-import NoticeFunctional from "./components/onceComponent/Notice";
-import Gallery from "./components/onceComponent/Gallery";
-import MyCarousel from "./components/onceComponent/MyCarousel";
-import BlogPost from "./components/onceComponent/BlogPost";
-import Contact from "./components/onceComponent/Contact";
-import Footer from "./components/onceComponent/Footer";
 export default {
   name: "App",
   components: {
-    Header,
-    NoticeFunctional,
-    Gallery,
-    MyCarousel,
-    BlogPost,
-    Contact,
-    Footer
+    Header
   },
   data() {
-    return {
-    };
+    return {};
   },
   methods: {
     scroll: function() {
@@ -55,9 +42,12 @@ export default {
   created() {
     document.addEventListener("scroll", this.scroll);
   },
+  mounted(){
+
+  }
 };
 </script>
 
 <style>
-@import "./styles/style.css";
+  @import "./styles/style.css";
 </style>

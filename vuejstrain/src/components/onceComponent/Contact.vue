@@ -33,7 +33,7 @@ export default {
     return {
       isShowPopUpSendMessage: false,
       messageData: { name: "", phone: "", email: "" },
-      valueEmail:''
+      valueEmail: ""
     };
   },
   components: {
@@ -49,6 +49,19 @@ export default {
     showPopUpSendMessages: function(data) {
       this.isShowPopUpSendMessage = data;
     }
+  },
+  created() {
+    var x = this.$route.params;
+    console.log(x.id);
+    console.log(x.name);
+  },
+  beforeRouteLeave (to, from, next) {
+    var nameRoute = this.$route.path;
+    if(nameRoute !== '/home'){
+      alert("before Rout Enter contact this");
+    }
+    console.log(nameRoute)
+    next();
   }
 };
 </script>

@@ -125,7 +125,11 @@ export default {
   },
   mounted(){
     this.showImg('all');
-  }
+  },
+  // beforeRouteEnter (to, from, next) {
+  //   alert("Before Route Enter")
+  //   next()
+  // },
 };
 </script>
 

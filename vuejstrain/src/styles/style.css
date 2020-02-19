@@ -4,7 +4,9 @@ body {
   width: 100%;
   overflow: auto;
 }
-
+a{
+  cursor: pointer;
+}
 * {
   font-size: 12px;
   font-family: "Tahoma", Segoe UI, Geneva, Verdana, sans-serif;
@@ -990,4 +992,14 @@ body {
 } */
 .active{
   color: rgb(238, 189, 55) !important;
+}
+.header_nav .active_route::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: orangered;
 }

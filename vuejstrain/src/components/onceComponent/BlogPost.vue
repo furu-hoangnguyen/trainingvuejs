@@ -128,7 +128,8 @@ export default {
         return this.currentPost;
       }
     }
-  }
+  },
+  
 };
 </script>
 

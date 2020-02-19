@@ -1,8 +1,26 @@
-import Vue from 'vue'
-import App from './App.vue'
-import myMixin from "./components/common/Mixxin.js"
-Vue.config.productionTip = false
+import Vue from "vue";
+import App from "./App.vue";
+import "./components/common/Mixxin.js";
+import VueRouter from "vue-router";
+
+import {routes} from './Router';
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+  mode: 'history',
+  routes
+})
+// router.beforeEach((to, from, next) => {
+//   alert("before Each")
+//   next()
+// });
+// router.afterEach((to) => {
+
+//   alert("after Each")
+//   to("blogPost")
+// })
+Vue.config.productionTip = false;
 new Vue({
-  render: h => h(App),
-  mixins:[myMixin]
-}).$mount('#app')
+  router,
+  render: h => h(App)
+}).$mount("#app");
