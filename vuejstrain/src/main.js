@@ -3,13 +3,15 @@ import App from "./App.vue";
 import "./components/common/Mixxin.js";
 import VueRouter from "vue-router";
 
-import {routes} from './Router';
+import { routes } from "./Router";
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   routes
-})
+});
+import {store} from "./store/index";
+
 // router.beforeEach((to, from, next) => {
 //   alert("before Each")
 //   next()
@@ -22,5 +24,6 @@ const router = new VueRouter({
 Vue.config.productionTip = false;
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount("#app");

@@ -30,7 +30,16 @@
           eiusmod anim cillum.
         </div>
         <div>
-          <h1>{{ $route.name}}</h1>
+          <h1>name path: {{ $route.name }}</h1>
+          <h2>vuex count: {{ count }}</h2>
+          <button @click="increCount">Count++</button> &nbsp; &nbsp;<button
+            @click="decreCount"
+          >
+            Count--
+          </button>
+          <br />
+          <button @click="increCountNum">Count++num</button> &nbsp;
+          &nbsp;<button @click="decreCountNum">Count--num</button>
         </div>
         <a @click="showCurrentRoute" class="header_content--btn">let's start</a>
       </div>
@@ -39,6 +48,9 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
 export default {
   name: "NoticeFunctional",
   data() {
@@ -71,21 +83,47 @@ export default {
           },
           class: ["menuItem1"]
         }
-      ]
+      ],
+      localCount: []
     };
   },
   methods: {
     showCurrentRoute() {
-      this.$router.push({ path: "/gallery"}).catch(error => {
+      this.$router.push({ path: "/gallery" }).catch(error => {
         if (error.name != "NavigationDuplicated") {
           throw error;
         }
       });
-      console.log(this.$route.name);
-      console.log(this.$router.options);
+    },
+    increCount() {
+      this.$store.dispatch("act_increment");
+    },
+    decreCount() {
+      this.$store.dispatch("act_decrement");
+    },
+    increCountNum() {
+      this.$store.dispatch("act_incrementNum");
+    },
+    decreCountNum() {
+      this.$store.dispatch("act_decrementNum");
     }
   },
-  created() {}
+  computed: {
+    state_count() {
+      var a = [];
+      this.doneTodos.map(d => a.push(d.id));
+      return a;
+    },
+    ...mapState(["count"]),
+    ...mapGetters(["doneTodos"]),
+    ...mapActions({
+      _increCount: "act_increment",
+      _decreCount: "act_decrement"
+    })
+  },
+  mounted() {
+    console.log(this.$store.state);
+  }
 };
 </script>
 

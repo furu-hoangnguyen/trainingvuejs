@@ -2,11 +2,6 @@
   <div id="app">
     <Header />
     <router-view />
-    <router-view name="gallery" />
-    <router-view name="myCarousel" />
-    <router-view name="blogPost" />
-    <router-view name="contact" />
-    <router-view name="footer" />
   </div>
 </template>
 
@@ -41,9 +36,9 @@ export default {
   },
   created() {
     document.addEventListener("scroll", this.scroll);
+    console.log(this.$store.state)
   },
-  mounted(){
-
+  computed:{
   }
 };
 </script>
