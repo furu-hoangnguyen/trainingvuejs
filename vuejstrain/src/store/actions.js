@@ -4,9 +4,9 @@ export const act_increment =({commit}) =>{
 export const act_decrement =({commit}) =>{
     commit('decrement')
 }
-export const act_incrementNum =({commit}) =>{
-    commit('_increment',{num: 5})
+export const act_incrementNum =({commit},payload) =>{
+    commit('_increment',{num: payload})
 }
-export const act_decrementNum =({commit}) =>{
-    commit('_decrement',{num: 5})
+export const act_decrementNum =({commit}, payload) =>{
+    commit('_decrement',{num: payload})
 }

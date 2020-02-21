@@ -13,8 +13,8 @@
           <a
             v-for="(item, index) in galleryButton"
             :id="'btn' + (index + 1)"
-            @click="showImg(item.imgName)"
-            :class="{ active: activeBtn == index + 1 }"
+            @click="activeBtn = item.imgName"
+            :class="{ active: activeBtn == item.imgName}"
             :key="index"
             >{{ item.name }}</a
           >
@@ -62,69 +62,50 @@ export default {
         { url: "./images/portfolio_item_05.jpg", type: "graphic" },
         { url: "./images/portfolio_item_06.jpg", type: "brand_nature" }
       ],
-      collectionGallerys: {
-        all: ["img1", "img2", "img3", "img4", "img5", "img6"],
-        brand: ["img1", "img2", "img3", "img6"],
-        graphic: ["img2", "img5", "img1", "img4"],
-        nature: ["img1", "img4", "img6", "img3"],
-        animation: ["img4", "img3", "img1", "img2"]
-      },
-      galleryImages: [],
-      activeBtn: 1
+      activeBtn: 'all'
     };
   },
   methods: {
-    showImg(name) {
-      switch (name) {
-        case "all":
-          this.activeBtn = 1;
-          this.galleryImages = this.galleryImgUrl;
-
+  },
+  computed: {
+    images: function() {
+      var _galleryImgUrl;
+      switch (this.activeBtn) {
+        case 'all':
+          _galleryImgUrl = this.galleryImgUrl
           break;
-        case "brand":
-          this.activeBtn = 2;
-          this.galleryImages = this.galleryImgUrl;
-          this.galleryImages = this.galleryImages.filter(elm => {
+      case 'brand':
+          _galleryImgUrl = this.galleryImgUrl.filter(elm => {
             var index = elm.type.indexOf("brand");
             if (index !== -1) return elm;
           });
           break;
-        case "graphic":
-          this.activeBtn = 3;
-          this.galleryImages = this.galleryImgUrl;
-          this.galleryImages = this.galleryImages.filter(elm => {
+      case "graphic":
+          _galleryImgUrl = this.galleryImgUrl.filter(elm => {
             var index = elm.type.indexOf("graphic");
             if (index !== -1) return elm;
           });
           break;
-        case "nature":
-          this.activeBtn = 4;
-          this.galleryImages = this.galleryImgUrl;
-          this.galleryImages = this.galleryImages.filter(elm => {
+      case "nature":
+          _galleryImgUrl = this.galleryImgUrl.filter(elm => {
             var index = elm.type.indexOf("nature");
             if (index !== -1) return elm;
           });
-          break;
-        case "animation":
-          this.activeBtn = 5;
-          this.galleryImages = this.galleryImgUrl;
-          this.galleryImages = this.galleryImages.filter(elm => {
+          break;    
+      case "animation":
+          _galleryImgUrl = this.galleryImgUrl.filter(elm => {
             var index = elm.type.indexOf("animation");
             if (index !== -1) return elm;
           });
-          break;
+          break;        
         default:
           break;
       }
-    },
-  },
-  computed: {
-    images: function() {
-      return this.galleryImages;
+      return _galleryImgUrl
     }
   },
-  mounted(){
-    this.showImg('all');
+  created(){
+    // this.showImg('all');
   },
   // beforeRouteEnter (to, from, next) {
   //   alert("Before Route Enter")

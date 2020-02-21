@@ -4,9 +4,9 @@ export const  increment=(state)=>{
 export const  decrement=(state)=>{
   state.count--
 }
-export const  _increment=(state,{num})=>{
-  state.count += num
+export const  _increment=(state,payload)=>{
+  state.count += payload.num
 }
-export const  _decrement=(state,{num})=>{
-  state.count -= num
+export const  _decrement=(state,payload)=>{
+  state.count -= payload.num
 }

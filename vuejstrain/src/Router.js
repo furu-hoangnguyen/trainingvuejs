@@ -4,26 +4,13 @@ import MyCarousel from "./components/onceComponent/MyCarousel";
 import BlogPost from "./components/onceComponent/BlogPost";
 import Contact from "./components/onceComponent/Contact";
 import Footer from "./components/onceComponent/Footer";
-
-// function dynamicPropsFn (route) {
-//   const now = new Date()
-//   return {
-//     name: (now.getFullYear() + parseInt(route.params.years)) + '!'
-//   }
-// }
+import Layout from "./layouts/layout.vue"
 export const routes = [
   { path: "/", name: "/", component: Gallery, redirect: "/home" },
   {
     path: "/home",
     name: "homepage",
-    components: {
-      default: NoticeFunctional,
-      gallery: Gallery,
-      myCarousel: MyCarousel,
-      blogPost: BlogPost,
-      contact: Contact,
-      footer: Footer
-    }
+    component:Layout
   },
   {
     path: "/gallery",

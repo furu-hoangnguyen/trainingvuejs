@@ -50,11 +50,6 @@ export default {
       this.isShowPopUpSendMessage = data;
     }
   },
-  created() {
-    var x = this.$route.params;
-    console.log(x.id);
-    console.log(x.name);
-  },
   beforeRouteLeave (to, from, next) {
     var nameRoute = this.$route.path;
     if(nameRoute !== '/home'){

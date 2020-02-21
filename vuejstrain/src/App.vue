@@ -36,7 +36,6 @@ export default {
   },
   created() {
     document.addEventListener("scroll", this.scroll);
-    console.log(this.$store.state)
   },
   computed:{
   }

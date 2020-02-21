@@ -4,7 +4,7 @@
       <div class="header_nav" id="myheader_nav">
         <router-link
           tag="a"
-          :to="item.href"
+          :to="item.path"
           v-html="item.name"
           :class="item.class"
           v-for="(item, index) in headerNav"
@@ -32,14 +32,11 @@
         <div>
           <h1>name path: {{ $route.name }}</h1>
           <h2>vuex count: {{ count }}</h2>
-          <button @click="increCount">Count++</button> &nbsp; &nbsp;<button
-            @click="decreCount"
-          >
-            Count--
-          </button>
+          <button @click="increCount">Count++</button> &nbsp; &nbsp;
+          <button @click="decreCount">Count--</button>
           <br />
-          <button @click="increCountNum">Count++num</button> &nbsp;
-          &nbsp;<button @click="decreCountNum">Count--num</button>
+          <button @click="increCountNum">Count++num</button> &nbsp; &nbsp;
+          <button @click="decreCountNum">Count--num</button>
         </div>
         <a @click="showCurrentRoute" class="header_content--btn">let's start</a>
       </div>
@@ -48,9 +45,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import { mapGetters } from "vuex";
-import { mapActions } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
   name: "NoticeFunctional",
   data() {
@@ -58,16 +53,16 @@ export default {
       headerNav: [
         {
           name: "<span>t</span>inder",
-          href: "/",
+          path: "/",
           class: ["logo", "menuItem1"]
         },
-        { name: "Home", href: "/home", class: ["menuItem1", "menuItem2"] },
-        { name: "about us", href: "/noticeFunctional", class: ["menuItem1"] },
-        { name: "gallery", href: "/gallery", class: ["menuItem1"] },
-        { name: "portfolio", href: "/myCarousel", class: ["menuItem1"] },
+        { name: "Home", path: "/home", class: ["menuItem1", "menuItem2"] },
+        { name: "about us", path: "/noticeFunctional", class: ["menuItem1"] },
+        { name: "gallery", path: "/gallery", class: ["menuItem1"] },
+        { name: "portfolio", path: "/myCarousel", class: ["menuItem1"] },
         {
           name: "blog",
-          href: {
+          path: {
             name: "blogPost",
             params: { id: 123 },
             query: { plan: "private" }
@@ -76,7 +71,7 @@ export default {
         },
         {
           name: "contact us",
-          href: {
+          path: {
             name: "contact",
             params: { id: 123, name: "props_contactus" },
             query: { plan: "private" }
@@ -88,6 +83,12 @@ export default {
     };
   },
   methods: {
+    ...mapActions([
+      "act_increment",
+      "act_decrement",
+      "act_incrementNum",
+      "act_decrementNum"
+    ]),
     showCurrentRoute() {
       this.$router.push({ path: "/gallery" }).catch(error => {
         if (error.name != "NavigationDuplicated") {
@@ -96,33 +97,22 @@ export default {
       });
     },
     increCount() {
-      this.$store.dispatch("act_increment");
+      this.act_increment();
     },
     decreCount() {
-      this.$store.dispatch("act_decrement");
+      this.act_decrement();
     },
     increCountNum() {
-      this.$store.dispatch("act_incrementNum");
+      this.act_incrementNum(10);
     },
     decreCountNum() {
-      this.$store.dispatch("act_decrementNum");
+      this.act_decrementNum(10);
     }
   },
   computed: {
-    state_count() {
-      var a = [];
-      this.doneTodos.map(d => a.push(d.id));
-      return a;
-    },
     ...mapState(["count"]),
-    ...mapGetters(["doneTodos"]),
-    ...mapActions({
-      _increCount: "act_increment",
-      _decreCount: "act_decrement"
-    })
   },
   mounted() {
-    console.log(this.$store.state);
   }
 };
 </script>

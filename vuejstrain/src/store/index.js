@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import * as mutation from './mutasions'
-import * as action from './actions'
+import mutation from './mutasions'
+import action from './actions'
+import HeaderModule from './modules/HeaderModule'
 Vue.use(Vuex)
+
 
 export const store = new Vuex.Store({
     state:{
@@ -23,6 +25,8 @@ export const store = new Vuex.Store({
     actions:{
         ...action
     },
-    
+    modules:{
+        HeaderModule
+    }
 })
-console.log(store.state.count)
+console.log(store.state)
