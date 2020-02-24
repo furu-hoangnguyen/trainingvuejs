@@ -7,7 +7,7 @@
           :to="item.path"
           v-html="item.name"
           :class="item.class"
-          v-for="(item, index) in headerNav"
+          v-for="(item, index) in as"
           :key="index"
           active-class="active_route"
           exact
@@ -31,7 +31,7 @@
         </div>
         <div>
           <h1>name path: {{ $route.name }}</h1>
-          <h2>vuex count: {{ count }}</h2>
+          <h2>vuex count: {{ countHeader }}</h2>
           <button @click="increCount">Count++</button> &nbsp; &nbsp;
           <button @click="decreCount">Count--</button>
           <br />
@@ -45,49 +45,20 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 export default {
   name: "NoticeFunctional",
   data() {
     return {
-      headerNav: [
-        {
-          name: "<span>t</span>inder",
-          path: "/",
-          class: ["logo", "menuItem1"]
-        },
-        { name: "Home", path: "/home", class: ["menuItem1", "menuItem2"] },
-        { name: "about us", path: "/noticeFunctional", class: ["menuItem1"] },
-        { name: "gallery", path: "/gallery", class: ["menuItem1"] },
-        { name: "portfolio", path: "/myCarousel", class: ["menuItem1"] },
-        {
-          name: "blog",
-          path: {
-            name: "blogPost",
-            params: { id: 123 },
-            query: { plan: "private" }
-          },
-          class: ["menuItem1"]
-        },
-        {
-          name: "contact us",
-          path: {
-            name: "contact",
-            params: { id: 123, name: "props_contactus" },
-            query: { plan: "private" }
-          },
-          class: ["menuItem1"]
-        }
-      ],
       localCount: []
     };
   },
   methods: {
-    ...mapActions([
-      "act_increment",
-      "act_decrement",
-      "act_incrementNum",
-      "act_decrementNum"
+    ...mapActions("HeaderModule", [
+      "headerModule_act_increment",
+      "headerModule_act_decrement",
+      "headerModule_act_incrementNum",
+      "headerModule_act_decrementNum"
     ]),
     showCurrentRoute() {
       this.$router.push({ path: "/gallery" }).catch(error => {
@@ -97,22 +68,23 @@ export default {
       });
     },
     increCount() {
-      this.act_increment();
+      this.headerModule_act_increment();
     },
     decreCount() {
-      this.act_decrement();
+      this.headerModule_act_decrement();
     },
     increCountNum() {
-      this.act_incrementNum(10);
+      this.headerModule_act_incrementNum(10);
     },
     decreCountNum() {
-      this.act_decrementNum(10);
+      this.headerModule_act_decrementNum(10);
     }
   },
   computed: {
-    ...mapState(["count"]),
+    ...mapState({ countHeader: state => state.HeaderModule.countHeader }),
+    ...mapGetters({ as: "HeaderModule/render_nav", todos: "doneTodos" })
   },
-  mounted() {
+  created() {
   }
 };
 </script>

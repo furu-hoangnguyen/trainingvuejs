@@ -2,16 +2,16 @@ const state = {
     headerNav: [
         {
             name: "<span>t</span>inder",
-            href: "/",
+            path: "/",
             class: ["logo", "menuItem1"]
         },
-        { name: "Home", href: "/home", class: ["menuItem1", "menuItem2"] },
-        { name: "about us", href: "/noticeFunctional", class: ["menuItem1"] },
-        { name: "gallery", href: "/gallery", class: ["menuItem1"] },
-        { name: "portfolio", href: "/myCarousel", class: ["menuItem1"] },
+        { name: "Home", path: "/home", class: ["menuItem1", "menuItem2"] },
+        { name: "about us", path: "/noticeFunctional", class: ["menuItem1"] },
+        { name: "gallery", path: "/gallery", class: ["menuItem1"] },
+        { name: "portfolio", path: "/myCarousel", class: ["menuItem1"] },
         {
             name: "blog",
-            href: {
+            path: {
                 name: "blogPost",
                 params: { id: 123 },
                 query: { plan: "private" }
@@ -20,7 +20,7 @@ const state = {
         },
         {
             name: "contact us",
-            href: {
+            path: {
                 name: "contact",
                 params: { id: 123, name: "props_contactus" },
                 query: { plan: "private" }
@@ -28,20 +28,40 @@ const state = {
             class: ["menuItem1"]
         }
     ],
-    localCount: []
+    countHeader: 0
 }
 
 const actions = {
-    alert() {
-        alert("this is header getter")
+    headerModule_act_increment({ commit }) {
+        commit('increment')
+    },
+    headerModule_act_decrement({ commit }) {
+        commit('decrement')
+    },
+    headerModule_act_incrementNum({ commit }, payload) {
+        commit('_increment', { num: payload })
+    },
+    headerModule_act_decrementNum({ commit }, payload) {
+        commit('_decrement', { num: payload })
     }
 };
 const getters = {
-    
+    render_nav: state => {
+        return state.headerNav
+    }
 };
 const mutations = {
-    increment(state, n) {
-        state.count += n
+    increment(state){
+        state.countHeader++
+    },
+    decrement(state){
+        state.countHeader--
+    },
+    _increment(state, payload){
+        state.countHeader += payload.num
+    },
+    _decrement(state, payload){
+        state.countHeader -= payload.num
     }
 }
 export default {

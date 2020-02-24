@@ -13,7 +13,7 @@
           <a
             v-for="(item, index) in galleryButton"
             :id="'btn' + (index + 1)"
-            @click="activeBtn = item.imgName"
+            @click="setTypeGallery(item.imgName)"
             :class="{ active: activeBtn == item.imgName}"
             :key="index"
             >{{ item.name }}</a
@@ -34,78 +34,23 @@
 </template>
 
 <script>
+import {mapState, mapGetters, mapActions} from 'vuex'
 export default {
   name: "Gallery",
   data: function() {
     return {
-      galleryButton: [
-        { name: "Show All", imgName: "all" },
-        { name: "Branding", imgName: "brand" },
-        { name: "Graphic", imgName: "graphic" },
-        { name: "Nature", imgName: "nature" },
-        { name: "Animation", imgName: "animation" }
-      ],
-      galleryImgUrl: [
-        { url: "./images/portfolio_item_01.jpg", type: "brand_nature" },
-        {
-          url: "./images/portfolio_item_02.jpg",
-          type: "brand_graphic_animation"
-        },
-        {
-          url: "./images/portfolio_item_03.jpg",
-          type: "brand_nature-animation"
-        },
-        {
-          url: "./images/portfolio_item_04.jpg",
-          type: "graphic_nature_animation"
-        },
-        { url: "./images/portfolio_item_05.jpg", type: "graphic" },
-        { url: "./images/portfolio_item_06.jpg", type: "brand_nature" }
-      ],
-      activeBtn: 'all'
+    
     };
   },
   methods: {
+    ...mapActions('GalleryModule',['setTypeGallery']),
   },
   computed: {
-    images: function() {
-      var _galleryImgUrl;
-      switch (this.activeBtn) {
-        case 'all':
-          _galleryImgUrl = this.galleryImgUrl
-          break;
-      case 'brand':
-          _galleryImgUrl = this.galleryImgUrl.filter(elm => {
-            var index = elm.type.indexOf("brand");
-            if (index !== -1) return elm;
-          });
-          break;
-      case "graphic":
-          _galleryImgUrl = this.galleryImgUrl.filter(elm => {
-            var index = elm.type.indexOf("graphic");
-            if (index !== -1) return elm;
-          });
-          break;
-      case "nature":
-          _galleryImgUrl = this.galleryImgUrl.filter(elm => {
-            var index = elm.type.indexOf("nature");
-            if (index !== -1) return elm;
-          });
-          break;    
-      case "animation":
-          _galleryImgUrl = this.galleryImgUrl.filter(elm => {
-            var index = elm.type.indexOf("animation");
-            if (index !== -1) return elm;
-          });
-          break;        
-        default:
-          break;
-      }
-      return _galleryImgUrl
-    }
+    ...mapState('GalleryModule',['activeBtn','galleryButton','galleryImgUrl']),
+    ...mapGetters('GalleryModule',['images'])
   },
   created(){
-    // this.showImg('all');
+    console.log(this.images)
   },
   // beforeRouteEnter (to, from, next) {
   //   alert("Before Route Enter")

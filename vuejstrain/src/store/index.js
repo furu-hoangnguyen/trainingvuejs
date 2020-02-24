@@ -3,6 +3,8 @@ import Vuex from 'vuex'
 import mutation from './mutasions'
 import action from './actions'
 import HeaderModule from './modules/HeaderModule'
+import ContactModule from './modules/ContactModule'
+import GalleryModule from './modules/GalleryModule'
 Vue.use(Vuex)
 
 
@@ -26,7 +28,8 @@ export const store = new Vuex.Store({
         ...action
     },
     modules:{
-        HeaderModule
+        HeaderModule,
+        ContactModule,
+        GalleryModule
     }
 })
-console.log(store.state)

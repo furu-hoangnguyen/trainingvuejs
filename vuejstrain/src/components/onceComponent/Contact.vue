@@ -9,17 +9,18 @@
           aliquip adipisicing minim pariatur velit laboris adipisicing quis
           culpa aliqua commodo. Sint amet aute ut incididunt nulla.
         </p>
+        {{isShowPopUpSendMessage}}
         <button type="button" @click="showPopUpSendMessages(true)">
           Send Us A message
         </button>
+        
       </div>
     </div>
     <PopupMessage
       :sendMessage="getMessages"
       :showPopup="showPopUpSendMessages"
       @getMessages="getMessages"
-      @close="isShowPopUpSendMessage = false"
-      v-model="valueEmail"
+      @close="showPopUpSendMessages(false)"
       v-if="isShowPopUpSendMessage"
     />
   </section>
@@ -27,36 +28,40 @@
 
 <script>
 import PopupMessage from "./Popup";
+// import { mapState, mapActions, mapGetters } from "vuex";
+import { mapState,mapActions} from "vuex";
 export default {
   name: "Contact",
   data: function() {
     return {
-      isShowPopUpSendMessage: false,
-      messageData: { name: "", phone: "", email: "" },
-      valueEmail: ""
+      // isShowPopUpSendMessage: false,
+      // messageData: { name: "", phone: "", email: "" },
+      // valueEmail: ""
     };
   },
   components: {
     PopupMessage
   },
   methods: {
+    ...mapActions('ContactModule',['act_showPopUpSendMessages','act_setDataMessage']),
     getMessages: function(data) {
-      console.log(data);
-      this.messageData.name = data.name;
-      this.messageData.phone = data.phone;
-      this.messageData.email = data.email;
+      this.act_setDataMessage(data)
     },
     showPopUpSendMessages: function(data) {
-      this.isShowPopUpSendMessage = data;
+      this.act_showPopUpSendMessages({isShow: data});
     }
   },
   beforeRouteLeave (to, from, next) {
     var nameRoute = this.$route.path;
-    if(nameRoute !== '/home'){
-      alert("before Rout Enter contact this");
-    }
+    alert("before Rout Enter contact this");
     console.log(nameRoute)
     next();
+  },
+  computed:{
+    ...mapState({isShowPopUpSendMessage: state => state.ContactModule.isShowPopUpSendMessage})
+  },
+  created(){
+    
   }
 };
 </script>
