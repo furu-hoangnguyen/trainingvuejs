@@ -1,16 +1,18 @@
 const state = {
     headerNav: [
         {
+            href:'#home',
             name: "<span>t</span>inder",
             path: "/",
             class: ["logo", "menuItem1"]
         },
-        { name: "Home", path: "/home", class: ["menuItem1", "menuItem2"] },
-        { name: "about us", path: "/noticeFunctional", class: ["menuItem1"] },
-        { name: "gallery", path: "/gallery", class: ["menuItem1"] },
-        { name: "portfolio", path: "/myCarousel", class: ["menuItem1"] },
+        { name: "home",href:'#home', path: "/home", class: ["menuItem1", "menuItem2"] },
+        { name: "about us",href:'#noticeFunctional', path: "/noticeFunctional", class: ["menuItem1"] },
+        { name: "gallery",href:'#gallery', path: "/gallery", class: ["menuItem1"] },
+        { name: "portfolio",href:'#myCarousel', path: "/myCarousel", class: ["menuItem1"] },
         {
             name: "blog",
+            href:'#blogPost',
             path: {
                 name: "blogPost",
                 params: { id: 123 },
@@ -20,6 +22,7 @@ const state = {
         },
         {
             name: "contact us",
+            href:'#contract',
             path: {
                 name: "contact",
                 params: { id: 123, name: "props_contactus" },
@@ -28,7 +31,8 @@ const state = {
             class: ["menuItem1"]
         }
     ],
-    countHeader: 0
+    countHeader: 0,
+    reponsiveClass: false
 }
 
 const actions = {
@@ -43,6 +47,9 @@ const actions = {
     },
     headerModule_act_decrementNum({ commit }, payload) {
         commit('_decrement', { num: payload })
+    },
+    headerModule_act_reponsiveMenu({commit}){
+        commit('reponsiveMenu')
     }
 };
 const getters = {
@@ -62,6 +69,9 @@ const mutations = {
     },
     _decrement(state, payload){
         state.countHeader -= payload.num
+    },
+    reponsiveMenu(state){
+        state.reponsiveClass = !state.reponsiveClass
     }
 }
 export default {

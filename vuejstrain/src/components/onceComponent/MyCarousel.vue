@@ -13,19 +13,6 @@
               {{item.content}}
             </div>
           </div>
-          <!-- <div class="carousel-item carouselItem">
-            <div class="myCarousel_content">
-              Esse et incididunt id non eu esse eu aliqua.Consectetur eiusmod
-              consequat et amet deserunt ad.
-            </div>
-          </div>
-          <div class="carousel-item carouselItem">
-            <div class="myCarousel_content">
-              Esse et incididunt id non eu esse eu aliqua.Consectetur eiusmod
-              consequat et amet deserunt ad. Esse et incididunt id non eu esse
-              eu aliqua.Consectetur eiusmod consequat et amet deserunt ad.
-            </div>
-          </div> -->
         </div>
         <a class="carousel-control-prev" href="#demo" data-slide="prev">
           <span class="carousel-control-prev-icon"></span>

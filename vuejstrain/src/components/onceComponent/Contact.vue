@@ -28,15 +28,11 @@
 
 <script>
 import PopupMessage from "./Popup";
-// import { mapState, mapActions, mapGetters } from "vuex";
 import { mapState,mapActions} from "vuex";
 export default {
   name: "Contact",
   data: function() {
     return {
-      // isShowPopUpSendMessage: false,
-      // messageData: { name: "", phone: "", email: "" },
-      // valueEmail: ""
     };
   },
   components: {

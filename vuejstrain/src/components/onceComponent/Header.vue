@@ -1,11 +1,12 @@
 <template>
   <section id="home">
     <div class="header">
-      <div class="header_nav" id="myheader_nav">
+      <div :class="{header_nav:true, responsive:reponsiveClass}" id="myheader_nav">
         <router-link
           tag="a"
           :to="item.path"
           v-html="item.name"
+          :href="item.href"
           :class="item.class"
           v-for="(item, index) in as"
           :key="index"
@@ -13,7 +14,7 @@
           exact
           >{{ item.name }}</router-link
         >
-        <a href="#icon" id="icon" class="icon" onclick="reponsiveMenu()">
+        <a href="#icon" id="icon" class="icon" @click="reponsiveMenu">
           <i class="fa fa-bars" id="iconCollaps"></i>
         </a>
       </div>
@@ -50,7 +51,7 @@ export default {
   name: "NoticeFunctional",
   data() {
     return {
-      localCount: []
+      
     };
   },
   methods: {
@@ -58,7 +59,8 @@ export default {
       "headerModule_act_increment",
       "headerModule_act_decrement",
       "headerModule_act_incrementNum",
-      "headerModule_act_decrementNum"
+      "headerModule_act_decrementNum",
+      "headerModule_act_reponsiveMenu"
     ]),
     showCurrentRoute() {
       this.$router.push({ path: "/gallery" }).catch(error => {
@@ -78,14 +80,16 @@ export default {
     },
     decreCountNum() {
       this.headerModule_act_decrementNum(10);
+    },
+    reponsiveMenu() {
+      this.headerModule_act_reponsiveMenu();
     }
   },
   computed: {
-    ...mapState({ countHeader: state => state.HeaderModule.countHeader }),
+    ...mapState('HeaderModule',['countHeader', 'reponsiveClass']),
     ...mapGetters({ as: "HeaderModule/render_nav", todos: "doneTodos" })
   },
-  created() {
-  }
+  created() {}
 };
 </script>
 

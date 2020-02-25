@@ -1003,3 +1003,7 @@ a{
   z-index: 1000;
   background-color: orangered;
 }
+.header_content .header_content--btn:hover{
+  text-decoration: none;
+  color: black;
+}
