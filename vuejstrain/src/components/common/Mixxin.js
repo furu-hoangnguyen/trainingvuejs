@@ -21,25 +21,25 @@ import Vue from 'vue'
 // };
 
 export default Vue.mixin({
-  data: function(){
-    return{
-      a :[]
+  data: function () {
+    return {
+      a: []
     }
   },
   methods: {
     hello: function () {
       console.log('hello from mixin!');
     },
-    showMessage(){
+    showMessage() {
       console.log(this.a)
       this.a.push(this.$data)
       console.log(this.a);
     }
   },
   mounted: function () {
-    var myOption = this.$options.myOption
-    if (myOption) {
-      console.log(myOption)
-    }
+    console.log(this.$route.name);
+    var elmntName = this.$route.name;
+    var elmnt = document.getElementById(elmntName);
+    elmnt.scrollIntoView();
   }
 })

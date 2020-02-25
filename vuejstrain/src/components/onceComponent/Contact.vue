@@ -1,5 +1,6 @@
 <template>
-  <section id="contract">
+  <div>
+    <section>
     <div class="contract">
       <div class="contract__content">
         <label>contact us</label>
@@ -24,6 +25,7 @@
       v-if="isShowPopUpSendMessage"
     />
   </section>
+  </div>
 </template>
 
 <script>

@@ -1,12 +1,15 @@
 <template>
   <section id="home">
     <div class="header">
-      <div :class="{header_nav:true, responsive:reponsiveClass}" id="myheader_nav">
+      <div
+        :class="{ header_nav: true, responsive: reponsiveClass }"
+        id="myheader_nav"
+      >
         <router-link
           tag="a"
           :to="item.path"
           v-html="item.name"
-          :href="item.href"
+          @click="scrollIntoTab(item.name)"
           :class="item.class"
           v-for="(item, index) in as"
           :key="index"
@@ -48,10 +51,10 @@
 <script>
 import { mapState, mapActions, mapGetters } from "vuex";
 export default {
-  name: "NoticeFunctional",
+  name: "Header",
   data() {
     return {
-      
+      tabScroll: ""
     };
   },
   methods: {
@@ -62,6 +65,9 @@ export default {
       "headerModule_act_decrementNum",
       "headerModule_act_reponsiveMenu"
     ]),
+    scrollIntoTab(name){
+      this.tabScroll = name
+    },
     showCurrentRoute() {
       this.$router.push({ path: "/gallery" }).catch(error => {
         if (error.name != "NavigationDuplicated") {
@@ -85,11 +91,18 @@ export default {
       this.headerModule_act_reponsiveMenu();
     }
   },
+  watch: {
+    tabScroll(){
+      console.log(this.tabScroll)
+    }
+  },
   computed: {
-    ...mapState('HeaderModule',['countHeader', 'reponsiveClass']),
+    ...mapState("HeaderModule", ["countHeader", "reponsiveClass"]),
     ...mapGetters({ as: "HeaderModule/render_nav", todos: "doneTodos" })
   },
-  created() {}
+  mounted() {
+    this.hello();
+  }
 };
 </script>
 
